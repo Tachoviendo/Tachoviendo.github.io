@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Personas Dicen (Según la IA)</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #007bff;
+            margin: 20px 0;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        input {
+            padding: 15px;
+            font-size: 1.2em;
+            width: 300px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #0056b3;
+            outline: none;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #28a745;
+            display: none; /* Ocultar el resultado inicialmente */
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        /* Estilo para el botón */
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>100 Personas Dicen (Según la IA)</h1>
+    <p>Escribe una palabra y presiona Enter:</p>
+    <input type="text" id="inputField" placeholder="Escribe aquí..." autofocus>
+    <button id="submitButton">Enviar</button>
+    <div class="result" id="result"></div>
+    <div class="footer">¡Diviértete jugando!</div>
+
+    <script>
+        let startTime;
+        const inputField = document.getElementById('inputField');
+        const resultDiv = document.getElementById('result');
+        const submitButton = document.getElementById('submitButton');
+
+        // Iniciar el temporizador al hacer foco en el campo de entrada
+        inputField.addEventListener('focus', () => {
+            startTime = new Date();
+        });
+
+        // Calcular el tiempo al presionar Enter
+        inputField.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                calculateTime();
+            }
+        });
+
+        // Calcular el tiempo al hacer clic en el botón
+        submitButton.addEventListener('click', () => {
+            calculateTime();
+        });
+
+        function calculateTime() {
+            const endTime = new Date();
+            const timeTaken = ((endTime - startTime) / 1000).toFixed(2); // Tiempo en segundos
+            resultDiv.textContent = `Tardaste ${timeTaken} segundos en dar tu respuesta.`;
+            resultDiv.style.display = 'block'; // Mostrar el resultado
+            inputField.value = ''; // Limpiar el campo de entrada
+            inputField.focus(); // Volver a enfocar el campo
+        }
+    </script>
+</body>
+</html>
