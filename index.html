@@ -9,9 +9,13 @@
             background-color: #f0f8ff;
             font-family: 'Arial', sans-serif;
             color: #333;
-            text-align: center;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Hace que el cuerpo ocupe toda la altura de la ventana */
+            text-align: center;
         }
         h1 {
             font-size: 2.5em;
@@ -63,12 +67,14 @@
     </style>
 </head>
 <body>
-    <h1>100 Personas Dicen (Según la IA)</h1>
-    <p>Escribe una palabra y presiona Enter:</p>
-    <input type="text" id="inputField" placeholder="Escribe aquí..." autofocus>
-    <button id="submitButton">Enviar</button>
-    <div class="result" id="result"></div>
-    <div class="footer">¡Diviértete jugando!</div>
+    <div>
+        <h1>100 Personas Dicen (Según la IA)</h1>
+        <p>Escribe una palabra y presiona Enter:</p>
+        <input type="text" id="inputField" placeholder="Escribe aquí..." autofocus>
+        <button id="submitButton">Enviar</button>
+        <div class="result" id="result"></div>
+        <div class="footer">¡Diviértete jugando!</div>
+    </div>
 
     <script>
         let startTime;
