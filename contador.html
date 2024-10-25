@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contadores de Puntos</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Hace que el cuerpo ocupe toda la altura de la ventana */
+            text-align: center;
+        }
+        .container {
+            display: flex; /* Usamos flexbox para alinear los contadores en horizontal */
+            justify-content: space-between; /* Espacio entre las cajas */
+            width: 80%; /* Ancho de la caja contenedora */
+            max-width: 800px; /* Ancho máximo de la caja contenedora */
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .team {
+            flex: 1; /* Hace que cada caja ocupe igual espacio */
+            margin: 0 10px; /* Margen entre las cajas */
+            padding: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2em;
+            color: #007bff;
+            margin: 10px 0;
+        }
+        .score {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="team">
+            <h2>Equipo 1</h2>
+            <div class="score" id="score1">0</div>
+            <button onclick="sumar(1)">Sumar 10</button>
+            <button onclick="restar(1)">Restar 10</button>
+        </div>
+        <div class="team">
+            <h2>Equipo 2</h2>
+            <div class="score" id="score2">0</div>
+            <button onclick="sumar(2)">Sumar 10</button>
+            <button onclick="restar(2)">Restar 10</button>
+        </div>
+    </div>
+
+    <script>
+        function sumar(equipo) {
+            const scoreElement = document.getElementById(`score${equipo}`);
+            let score = parseInt(scoreElement.textContent);
+            score += 10; // Sumar 10 puntos
+            scoreElement.textContent = score;
+        }
+
+        function restar(equipo) {
+            const scoreElement = document.getElementById(`score${equipo}`);
+            let score = parseInt(scoreElement.textContent);
+            if (score >= 10) {
+                score -= 10; // Restar 10 puntos
+                scoreElement.textContent = score;
+            }
+        }
+    </script>
+</body>
+</html>
