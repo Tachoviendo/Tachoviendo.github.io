@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Nombre - Portafolio Multidisciplinario</title>
+    <link rel="stylesheet" href="css/main.css">
+    </head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Hola, soy [Tu Nombre]</h1>
+            <p>Creo experiencias visuales impactantes y soluciones web innovadoras.</p>
+            <a href="#portfolio" class="btn">Explora mi trabajo</a>
+        </div>
+    </header>
+
+    <section id="skills" class="skills-section">
+        <h2>Mis Habilidades</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h3>Fotografía</h3>
+                <p>Capturando momentos y creando narrativas visuales con cada disparo.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Diseño Gráfico</h3>
+                <p>Conceptualizando y diseñando identidades visuales memorables y materiales de marketing.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Edición de Video</h3>
+                <p>Dando vida a historias a través de la edición dinámica y la post-producción.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Desarrollo Web</h3>
+                <p>Construyendo sitios web responsivos y funcionales que impulsan el engagement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <h2>Mi Portafolio</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Todo</button>
+            <button class="filter-btn" data-filter="photography">Fotografía</button>
+            <button class="filter-btn" data-filter="graphic-design">Diseño Gráfico</button>
+            <button class="filter-btn" data-filter="video-editing">Edición de Video</button>
+            <button class="filter-btn" data-filter="web-development">Desarrollo Web</button>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item photography">
+                <img src="https://via.placeholder.com/400x300/e0e0e0/000000?text=Foto+1" alt="Proyecto de Fotografía 1">
+                <div class="item-overlay">
+                    <h3>Atardecer en la Ciudad</h3>
+                    <p>Fotografía urbana</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item graphic-design">
+                <img src="https://via.placeholder.com/400x300/d0d0d0/000000?text=Diseño+1" alt="Proyecto de Diseño Gráfico 1">
+                <div class="item-overlay">
+                    <h3>Identidad de Marca</h3>
+                    <p>Logotipo y branding</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item video-editing">
+                <img src="https://via.placeholder.com/400x300/c0c0c0/000000?text=Video+1" alt="Proyecto de Edición de Video 1">
+                <div class="item-overlay">
+                    <h3>Corto Promocional</h3>
+                    <p>Edición y motion graphics</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item web-development">
+                <img src="https://via.placeholder.com/400x300/b0b0b0/000000?text=Web+1" alt="Proyecto Web 1">
+                <div class="item-overlay">
+                    <h3>E-commerce Moderno</h3>
+                    <p>HTML, CSS, JavaScript</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item photography">
+                <img src="https://via.placeholder.com/400x300/e0e0e0/000000?text=Foto+2" alt="Proyecto de Fotografía 2">
+                <div class="item-overlay">
+                    <h3>Retrato en Estudio</h3>
+                    <p>Sesión fotográfica</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item graphic-design">
+                <img src="https://via.placeholder.com/400x300/d0d0d0/000000?text=Diseño+2" alt="Proyecto de Diseño Gráfico 2">
+                <div class="item-overlay">
+                    <h3>Diseño Editorial</h3>
+                    <p>Revista digital</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item web-development">
+                <img src="https://via.placeholder.com/400x300/b0b0b0/000000?text=Web+2" alt="Proyecto Web 2">
+                <div class="item-overlay">
+                    <h3>Blog Personal</h3>
+                    <p>Diseño responsivo</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>Sobre Mí</h2>
+        <div class="about-content">
+            <img src="https://via.placeholder.com/150" alt="Tu foto de perfil" class="profile-pic">
+            <p>Soy un profesional apasionado por la creatividad y la tecnología, con experiencia en fotografía, diseño gráfico, edición de video y desarrollo web. Mi enfoque es crear soluciones integrales que no solo sean estéticamente atractivas, sino también funcionales y efectivas. Me encanta transformar ideas en realidades digitales.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contacto</h2>
+        <p>¿Tienes un proyecto en mente o simplemente quieres saludar? ¡Ponte en contacto!</p>
+        <form class="contact-form">
+            <input type="text" placeholder="Tu Nombre" required>
+            <input type="email" placeholder="Tu Email" required>
+            <textarea placeholder="Tu Mensaje" rows="5" required></textarea>
+            <button type="submit" class="btn">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 [Tu Nombre]. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover 'active' de todos los botones y añadirlo al clickeado
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filterValue = this.dataset.filter;
+
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                            item.style.display = 'block'; // O 'flex', 'grid' según tu diseño CSS
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
