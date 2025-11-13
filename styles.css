@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #1d3163;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.instructions {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+.card-container {
+    perspective: 1500px;
+    position: relative;
+    width: 420px;
+    height: 420px;
+    margin: 0 auto;
+}
+
+/* Efecto de cartas apiladas - mejorado */
+.card-container::before,
+.card-container::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #1d3163;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-container::before {
+    top: -10px;
+    left: -10px;
+    z-index: -2;
+    opacity: 0.4;
+}
+
+.card-container::after {
+    top: -5px;
+    left: -5px;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card.flipped:hover {
+    transform: rotateY(180deg) translateY(-5px);
+}
+
+/* Animación para volver al mazo */
+.card.to-deck {
+    animation: toBackOfDeck 0.6s ease-in-out;
+}
+
+@keyframes toBackOfDeck {
+    0% {
+        transform: rotateY(180deg) translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: rotateY(180deg) translateY(-20px) translateX(-15px) scale(0.95);
+        opacity: 0.8;
+    }
+    100% {
+        transform: rotateY(0deg) translateY(0) translateX(-10px) scale(0.9);
+        opacity: 0;
+    }
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card-front {
+    background: #1d3163;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-back {
+    background: white;
+    border: 1px solid #e0e0e0;
+    transform: rotateY(180deg);
+}
+
+.card-content {
+    color:white;
+    padding: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+.topic-text {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #1d3163;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .card-container {
+        width: 360px;
+        height: 360px;
+    }
+    
+    .card-container::before {
+        top: -8px;
+        left: -8px;
+    }
+    
+    .card-container::after {
+        top: -4px;
+        left: -4px;
+    }
+    
+    .logo {
+        max-width: 160px;
+    }
+    
+    .topic-text {
+        font-size: 1.4rem;
+    }
+    
+    .card-content {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        width: 320px;
+        height: 320px;
+    }
+    
+    .card-container::before {
+        top: -6px;
+        left: -6px;
+    }
+    
+    .card-container::after {
+        top: -3px;
+        left: -3px;
+    }
+    
+    .topic-text {
+        font-size: 1.2rem;
+    }
+    
+    .card-content {
+        padding: 30px;
+    }
+    
+    .logo {
+        max-width: 140px;
+    }
+}
