@@ -186,6 +186,38 @@ h1 {
     line-height: 1.5;
 }
 
+.result-disclaimer {
+    color: #888;
+    font-size: 0.82rem;
+    font-style: italic;
+    line-height: 1.5;
+    margin-top: 16px;
+}
+
+.btn-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    margin-top: 20px;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     .screen {

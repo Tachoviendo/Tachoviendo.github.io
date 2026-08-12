@@ -185,6 +185,9 @@ const optionsContainer = document.getElementById('optionsContainer');
 const resultArea = document.getElementById('resultArea');
 const resultCareer = document.getElementById('resultCareer');
 const resultDesc = document.getElementById('resultDesc');
+const whatsappBtn = document.getElementById('whatsappBtn');
+
+const WHATSAPP_NUMBER = '59897098923';
 
 function shuffle(array) {
     const copy = [...array];
@@ -267,6 +270,9 @@ function showResult() {
     resultArea.textContent = winner.area;
     resultCareer.textContent = winner.nombre;
     resultDesc.textContent = winner.frase;
+
+    const mensaje = `Hola! Quiero saber más información acerca de ${winner.nombre} y empezar en 2027!`;
+    whatsappBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
 
     showScreen(resultScreen);
 }
